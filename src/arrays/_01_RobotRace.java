@@ -19,14 +19,29 @@ public class _01_RobotRace {
 		int[] rob3c = {0, 0};
 		int[] rob4c = {0, 0};
 		
+		int counts0 = 0;
+		int counts1 = 0;
+		int counts2 = 0;
+		int counts3 = 0;
+		
 		Robot[] rob = new Robot[4];
 		for (int i = 0; i < rob.length; i++) {
 			rob[i] = new Robot();
 			rob[i].miniaturize();
 			rob[i].setX(x);
+			rob[i].setSpeed(100);
 			if (i == 0) {
 				rob1c[0] = rob[0].getX();
 				rob1c[1] = rob[0].getY();
+			}else if (i == 1) {
+				rob2c[0] = rob[1].getX();
+				rob2c[1] = rob[1].getY();
+			}else if (i == 2) {
+				rob3c[0] = rob[2].getX();
+				rob3c[1] = rob[2].getY();
+			}else if (i == 3) {
+				rob4c[0] = rob[3].getX();
+				rob4c[1] = rob[3].getY();
 			}
 			x = x - 30;
 		}
@@ -43,8 +58,13 @@ public class _01_RobotRace {
 						if (rob1 == 30) {
 							rob[0].turn(36);
 							rob1 = 0;
+							counts0++;
 						}
 					}
+				}
+				if (counts0 == 10) {
+					System.out.println("Robot 1 wins!!! ^_^");
+					win = true;
 				}
 				
 				if (i == 1) {
@@ -55,8 +75,13 @@ public class _01_RobotRace {
 						if (rob2 == 60) {
 							rob[1].turn(36);
 							rob2 = 0;
+							counts1++;
 						}
 					}
+				}
+				if (counts1 == 10) {
+					System.out.println("Robot 2 wins!!! ^_^");
+					win = true;
 				}
 				
 				if (i == 2) {
@@ -67,8 +92,13 @@ public class _01_RobotRace {
 						if (rob3 == 90) {
 							rob[2].turn(36);
 							rob3 = 0;
+							counts2++;
 						}
 					}
+				}
+				if (counts2 == 10) {
+					System.out.println("Robot 3 wins!!! ^_^");
+					win = true;
 				}
 				
 				if (i == 3) {
@@ -79,9 +109,16 @@ public class _01_RobotRace {
 						if (rob4 == 120) {
 							rob[3].turn(36);
 							rob4 = 0;
+							counts3++;
 						}
 					}
+					
 				}
+				if (counts3 == 10) {
+					System.out.println("Robot 4 wins!!! ^_^");
+					win = true;
+				}
+				
 			}
 		}
 
